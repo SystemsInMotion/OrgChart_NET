@@ -82,6 +82,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DatabaseContext_specs.cs" />
+    <Compile Include="DbContext_specs.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Controllers\HomeControllerTest.cs" />
   </ItemGroup>
