@@ -1,38 +1,47 @@
-﻿using System;
-using System.Configuration;
-using System.Data;
-using System.Data.SqlClient;
+﻿using System.Data.Entity.Core.Common.CommandTrees;
+using System.Linq;
+using System.Web.UI.WebControls;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Orgchart.Web.Infrastructure;
+using Orgchart.Web.Models;
 
 namespace Orgchart.Web.Tests
 {
     [TestClass]
     public class DatabaseContext_Specs
     {
-
         [TestMethod]
-        public void Can_connect_to_database()
+        public void Can_create_JobTitle()
         {
-            
-            var connectionString = ConfigurationManager.ConnectionStrings["DatabaseContext"].ToString();
-            var conn = new SqlConnection(connectionString);
+            var db = new DatabaseContext();
 
-            try
-            {
-                conn.Open();
-                Assert.IsTrue(conn.State == ConnectionState.Open);
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine(e);
-                Assert.Fail(e.Message);
-            }
-            finally
-            {
-                if (conn.State == ConnectionState.Open)
-                    conn.Close();
-            }
+            var jt = new JobTitle {Description = "test"};
+
+            db.JobTitles.Add(jt);
+            db.SaveChanges();
+
+            var db2 = new DatabaseContext();
+            var jt2 = db2.JobTitles.SingleOrDefault(_ => _.Description == "test");
+
+            if(jt2 ==null)
+                Assert.Fail();
+
+            Assert.IsTrue(jt.Id == jt2.Id);
+
         }
 
+ 
+        [TestCleanup]
+        public void Cleanup()
+        {
+            var db = new DatabaseContext();
+
+            var jt = db.JobTitles.SingleOrDefault(_ => _.Description == "test");
+
+            if (jt != null)
+                db.JobTitles.Remove(jt);
+            db.SaveChanges();
+
+        }
     }
 }
