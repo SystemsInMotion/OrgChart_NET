@@ -74,5 +74,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Orgchart.Database.publish.xml" />
+    <None Include="Orgchart_1.Database.publish.xml" />
   </ItemGroup>
 </Project>

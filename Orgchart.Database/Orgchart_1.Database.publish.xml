@@ -2,9 +2,8 @@
 <Project ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <IncludeCompositeObjects>True</IncludeCompositeObjects>
-    <TargetDatabaseName>Orgchart</TargetDatabaseName>
+    <TargetDatabaseName>Orgchart.Database</TargetDatabaseName>
     <DeployScriptFileName>Orgchart.Database.sql</DeployScriptFileName>
     <ProfileVersionNumber>1</ProfileVersionNumber>
-    <TargetConnectionString>Data Source=LT-CNU350BHTS\SQLEXPRESS;Integrated Security=True;Pooling=False</TargetConnectionString>
   </PropertyGroup>
 </Project>
