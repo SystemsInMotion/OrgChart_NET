@@ -8,7 +8,7 @@ namespace Orgchart.Web.Infrastructure
         : DbContext
     {
         public DatabaseContext()
-            : base("name=DatabaseContext")
+            : base("DatabaseContext")
         {
                         
         }

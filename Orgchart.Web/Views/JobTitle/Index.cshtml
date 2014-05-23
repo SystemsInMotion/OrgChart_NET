@@ -1,0 +1,23 @@
+﻿@model IEnumerable<Orgchart.Web.Models.JobTitle>
+
+@{
+    ViewBag.Title = "Job Title";
+}
+
+<h2>Job Title</h2>
+
+@Html.ActionLink("Create","Create")
+
+<table>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(_ => _.Description)
+        </th>
+    </tr>
+    @foreach (var m in Model)
+    {
+        <tr>
+            <td>@Html.DisplayFor(_ => m.Description)</td>
+        </tr>
+    }
+</table>

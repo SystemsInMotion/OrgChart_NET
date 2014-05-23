@@ -1,13 +1,13 @@
-﻿using System;
+using System;
 using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace Orgchart.Web.Tests
+namespace Orgchart.Web.Tests.Infrastructure_specs
 {
     [TestClass]
-    public class DatabaseContext_specs
+    public class Connection_specs
     {
         [TestMethod]
         public void Can_connect_to_database()

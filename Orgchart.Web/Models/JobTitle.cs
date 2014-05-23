@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Orgchart.Web.Models
 {
-    [Table("JOB_TITLE")]
+    [Table("Job_Title")]
     public partial class JobTitle
     {
         [Key]
