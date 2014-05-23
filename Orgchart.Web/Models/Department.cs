@@ -1,20 +1,31 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
 
 namespace Orgchart.Web.Models
 {
+ 
+    [Table("Department")]
     public class Department
     {
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
+        [Key]
+        [Column("Department_Id")]
         public int DepartmentId { get; set; }
 
-        public int manager_id { get; set; }
-        public string name { get; set; }
-        public int parent_department_id { get; set; }
+        [Column("manager_id")]
+        public int? ManagerId { get; set; }
+        
+        [Required]
+        [Column("name")]
+        public string Name { get; set; }
 
+        [Column("parent_department_id")]
+        public int? ParentDepartmentId { get; set; }
+
+       
         public virtual ICollection<Employee> Employees { get; set; }
 
 

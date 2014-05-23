@@ -45,7 +45,7 @@ namespace Orgchart.Web.Models
 
         [Column("manager_id")]
         public int ManagerId { get; set; }
-
+        
         [Column("department_id")]
         public int DepartmentId { get; set; }
     }
