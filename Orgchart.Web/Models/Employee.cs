@@ -37,16 +37,22 @@ namespace Orgchart.Web.Models
 
         [Required]
         [Column("job_title_id")]
-        public int JobTitleId { get; set; }
+        public int? JobTitleId { get; set; }
 
-        [Required]
+
         [Column("is_manager")]
         public bool IsManager { get; set; }
 
         [Column("manager_id")]
-        public int ManagerId { get; set; }
-        
+        public int? ManagerId { get; set; }
+
+        [Required]
         [Column("department_id")]
-        public int DepartmentId { get; set; }
+        public int? DepartmentId { get; set; }
+
+        public virtual Employee Manager { get; set; }
+        public virtual Department Department { get; set; }
+        public virtual JobTitle JobTitle { get; set; }
+
     }
 }

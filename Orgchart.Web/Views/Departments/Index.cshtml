@@ -1,4 +1,5 @@
-﻿@model IEnumerable<Orgchart.Web.Models.Department>
+﻿@using Orgchart.Web.Infrastructure
+@model IEnumerable<Orgchart.Web.Models.Department>
 
 @{
     ViewBag.Title = "Departments";
@@ -15,7 +16,7 @@
             @Html.DisplayNameFor(model => model.Name)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.ParentDepartmentId)
+            @Html.Label("Parent department")
         </th>
         <th></th>
     </tr>
@@ -26,7 +27,18 @@
             @Html.DisplayFor(modelItem => item.Name)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.ParentDepartmentId)
+            @{
+                string parent_name;
+                if (item.ParentDepartment != null)
+                {
+                    parent_name = item.ParentDepartment.Name;
+                }
+                else
+                {
+                    parent_name = "n/a";
+                }
+            }
+            @Html.Label(parent_name)
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.DepartmentId }) |

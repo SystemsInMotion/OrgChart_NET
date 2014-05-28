@@ -1,4 +1,5 @@
-﻿@model Orgchart.Web.Models.Department
+﻿@using Orgchart.Web.Infrastructure
+@model Orgchart.Web.Models.Department
 
 @{
     ViewBag.Title = "Details";
@@ -11,14 +12,6 @@
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayNameFor(model => model.ManagerId)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.ManagerId)
-        </dd>
-
-        <dt>
             @Html.DisplayNameFor(model => model.Name)
         </dt>
 
@@ -27,11 +20,11 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.ParentDepartmentId)
+            @Html.Label("Parent department")
         </dt>
-
+     
         <dd>
-            @Html.DisplayFor(model => model.ParentDepartmentId)
+            @LabelExtensions.Label(Html, ViewBag.parent_name)
         </dd>
 
     </dl>
